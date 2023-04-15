@@ -1,0 +1,21 @@
+site_name: erudito
+repo_url: https://github.com/adriacabeza/erudito
+
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings
+  - search
+
+watch:
+  - api
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
