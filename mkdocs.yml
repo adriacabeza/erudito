@@ -3,13 +3,29 @@ repo_url: https://github.com/adriacabeza/erudito
 
 theme:
   name: "material"
+  logo: logo.jpeg
+  features:
+    - content.code.copy
+    -
 
 plugins:
   - mkdocstrings
   - search
 
 watch:
-  - api
+  - src
+
+nav:
+  - Home: 'index.md'
+  - User Guide: 'setup.md'
+  - Documentation:
+      - 'ingest.md'
+      - 'query.md'
+      - 'faiss_wrapper.md'
+      - 'reader.md'
+  - 'utils.md'
+  - Special Thanks: 'special_thanks.md'
+
 
 markdown_extensions:
   - pymdownx.highlight:

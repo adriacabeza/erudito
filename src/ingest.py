@@ -1,3 +1,13 @@
+"""
+This module provides functionality for ingesting text files and creating a vector store for them using Llama
+embeddings and Faiss indexing.
+
+Note:
+    The vector store is created using Faiss indexing, and it is saved in a new folder in the 'index' directory. The
+    name of the new folder is the same as the name of the folder containing the text documents.
+"""
+
+
 import logging
 from pathlib import Path
 from typing import List, Optional
@@ -18,8 +28,13 @@ llama: Optional[Llama] = None
 
 def create_store(chunks: List[str], folder_name: str = "vector_store"):
     """
-    Create the vector store
+    Create the vector store for given text chunks using model embeddings and Faiss indexing.
+
+    Args:
+        chunks : List[str] : Required : A list of text chunks to create the vector store from.
+        folder_name : str : Optional : The name of the folder where the vector store will be saved. Default is "vector_store".
     """
+
     index = FaissIndex()
     embeddings = np.empty((len(chunks), 4096))
     index_path = Path("index") / folder_name / "index.faiss"
@@ -55,7 +70,17 @@ def ingest(
     model_path: str = typer.Argument(..., help="Folder containing the model."),
 ):
     """
-    Ingest all the text files from documentation_path and create a vector store. It will create a new folder with the embedding index.
+    Ingest all the text files from `documentation_path` and create a vector store using the Llama model.
+
+    Args:
+        documentation_path (str): Path to the folder containing the text documents to be ingested.
+        model_path (str): Path to the folder containing the Llama model.
+
+    Raises:
+        Exception: If no documents are found inside the `documentation_path` folder.
+
+    Notes:
+        This function creates a new folder with the embedding index in the `index` directory.
     """
     global llama
     # initialize the Llama model
