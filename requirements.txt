@@ -1,0 +1,10 @@
+beautifulsoup4
+faiss-cpu
+fastapi
+llama-cpp-python
+markdown
+numpy
+PyPDF2
+rich
+typer[all]
+uvicorn
