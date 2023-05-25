@@ -36,7 +36,7 @@ def create_store(chunks: List[str], folder_name: str = "vector_store"):
     """
 
     index = FaissIndex()
-    embeddings = np.empty((len(chunks), 4096))
+    embeddings = np.empty((len(chunks), llama.n_embd()))
     index_path = Path("index") / folder_name / "index.faiss"
 
     # check if the index already exists

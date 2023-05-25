@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Optional
 
 from fastapi import FastAPI
@@ -43,6 +44,6 @@ def query_entrypoint(payload: QueryPayload) -> dict:
         "result": query(
             question=payload.question,
             model_path=payload.model_path,
-            index_path=payload.index_path,
+            index_path=Path(payload.index_path),
         )
     }
