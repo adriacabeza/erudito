@@ -56,7 +56,7 @@ There are two simple CLI applications:
 
 To run the uvicorn server:
 ```console
-uvicorn main:app --reload --host 0.0.0.0 --port 8383
+uvicorn src.api:app --reload --host 0.0.0.0 --port 8383
 ```
 Then you can hit the two endpoints available:
 
