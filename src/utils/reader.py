@@ -65,11 +65,10 @@ def pdf_to_text(input_file: Path) -> str:
         str, the plain text content of the PDF file.
     """
     with open(input_file, "rb") as f:
-        reader = PyPDF2.PdfFileReader(f)
+        reader = PyPDF2.PdfReader(f)
         text = ""
-        for i in range(reader.getNumPages()):
-            page = reader.getPage(i)
-            text += page.extractText()
+        for page in reader.pages:
+            text += page.extract_text()
     return text
 
 
