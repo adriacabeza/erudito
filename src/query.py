@@ -81,6 +81,7 @@ def query(
         question = prompt_with_context().format(context=context[0], question=question)
     response = llama(prompt=question)["choices"][0]["text"]
     print(response.split('"""')[0])
+    return response.split('"""')
 
 
 if __name__ == "__main__":
